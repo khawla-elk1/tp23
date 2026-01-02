@@ -7,9 +7,10 @@ import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitio
 import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.context.annotation.Bean;
 
-
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class GatewayApplication {
 
     public static void main(String[] args) {
@@ -19,7 +20,7 @@ public class GatewayApplication {
     @Bean
     DiscoveryClientRouteDefinitionLocator routesDynamic(
             ReactiveDiscoveryClient reactiveDiscoveryClient,
-            DiscoveryLocatorProperties discoveryLocatorProperties){
-        return new DiscoveryClientRouteDefinitionLocator(reactiveDiscoveryClient,discoveryLocatorProperties);
+            DiscoveryLocatorProperties discoveryLocatorProperties) {
+        return new DiscoveryClientRouteDefinitionLocator(reactiveDiscoveryClient, discoveryLocatorProperties);
     }
 }

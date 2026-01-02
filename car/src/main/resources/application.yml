@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: SERVICE-CAR
+  cloud:
+    consul:
+      host: ${SPRING_CLOUD_CONSUL_HOST:localhost}
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/carservicedb?createDatabaseIfNotExist=true
